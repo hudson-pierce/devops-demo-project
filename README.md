@@ -15,4 +15,5 @@ To run the tests execute this command:
 bash run_tests.sh
 ```
 
-You can see the tests running in the browser inside the container by visiting: http://localhost:7900. The password is `secret`
+You can see the tests running in the browser inside the container by visiting: http://localhost:7900. The password is `secret`.
+
