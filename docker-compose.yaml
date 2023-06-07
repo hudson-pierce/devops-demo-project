@@ -1,7 +1,43 @@
 version: '3.8'
 services:
-  website: 
-    build: 
+  website:
+    build:
       context: .
-    ports: 
+      dockerfile: Dockerfile
+    ports:
       - 80:80
+    networks:
+      - tests_network
+    hostname: website
+
+  selenium:
+    image: selenium/standalone-chrome
+    ports:
+      - 4444:4444
+      - 7900:7900
+    shm_size: "2g"
+    platform: "linux/amd64"
+    networks:
+      - tests_network
+
+  test_runner:
+    build:
+      context: .
+      dockerfile: tests/Dockerfile
+    ports:
+      - 4445:4444
+      - 7901:7900
+    volumes:
+      - $PWD:/usr/app
+    depends_on:
+      - selenium
+    environment:
+      - SELENIUM_HOST=selenium
+      - SELENIUM_PORT=4444
+      - WEBSITE_HOST=website
+    command: npm run test
+    networks:
+      - tests_network
+
+networks:
+  tests_network:
