@@ -2,7 +2,7 @@ const webdriver = require('selenium-webdriver');
 const { Builder, Capabilities } = webdriver;
 let capabilities = Capabilities.chrome();
 
-describe("Test if website's title is correct", () => {
+describe("Test Website", () => {
     let driver;
 
     beforeAll(async () => {
@@ -13,7 +13,7 @@ describe("Test if website's title is correct", () => {
         await driver.get("http://website/");
     }, 30000);
 
-    it('test', async () => {
+    it('Test if website title is correct', async () => {
         try {
             let title = (await driver.getTitle()).trim();
             expect(title).toEqual("Welcome to Explore California");
