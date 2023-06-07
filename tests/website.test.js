@@ -7,7 +7,7 @@ describe("Test if website's title is correct", () => {
 
     beforeAll(async () => {
         driver = new Builder()
-            .usingServer('http://selenium:4444/wd/hub')  // Updated URL to use the service name
+            .usingServer('http://selenium:4444/wd/hub')
             .withCapabilities(capabilities)
             .build();
         await driver.get("http://website/");
