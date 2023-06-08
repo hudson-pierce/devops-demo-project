@@ -1,9 +1,9 @@
 {
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "jest": "^29.5.0",
     "selenium-webdriver": "^4.10.0"
-  },
-  "scripts": {
-    "test": "jest"
   }
 }

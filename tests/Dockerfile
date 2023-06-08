@@ -1,5 +1,11 @@
-FROM node:18.16.0-alpine
+FROM node:18.16.0
 LABEL maintainer "Hudson Pierce"
 
-WORKDIR /usr/app
-RUN npm install jest selenium-webdriver
+WORKDIR /app
+
+# Copy package files and run npm install
+COPY tests/* /app
+RUN npm install
+
+# Set the entrypoint command
+CMD ["npm", "test"]

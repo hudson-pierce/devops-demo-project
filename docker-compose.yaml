@@ -24,8 +24,6 @@ services:
     build:
       context: .
       dockerfile: tests/Dockerfile
-    volumes:
-      - $PWD:/usr/app
     depends_on:
       - selenium
     environment:

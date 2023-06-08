@@ -40,6 +40,9 @@ fi
 # Bring up the Docker containers
 docker-compose up -d
 
+# Sleep for 5 seconds to allow the containers to start up
+sleep 5
+
 # Navigate to the tests directory
 cd tests
 
